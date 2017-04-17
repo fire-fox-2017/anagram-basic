@@ -1,19 +1,23 @@
 var express = require('express');
 var router = express.Router();
-var helper = require('../helpers/util');
+var helper = require('../helper/util')
+var models = require('../models')
 
 /* GET home page. */
-
 router.get('/', function(req, res, next) {
-  var word = req.query.word;
+  models.Word.findAll()
+  .then((allwords)=>{
+    let source = [];
+    allwords.forEach((word)=>{
+      source.push(word.words)
+    })
+    let data = req.query.word || 'apa aja';
 
-  // release 2
-  res.render('index', {title: 'Anagrams', word: word, anagrams: {} });
-
-  // release 3
-  // helper.anagrams(word, function(source, data){
-  //   res.render('index', { title: 'Anagrams', word: source, anagrams: data });
-  // });
+    let result = helper.anagrams(source, data);
+    //res.send({ output: result || '??', input : data})
+    //console.log(source)
+     res.render('index', { alldata : allwords, output: result || '??', input : data || 'word'})
+  })
 
 });
 

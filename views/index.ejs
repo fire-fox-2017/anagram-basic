@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=  %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <h3><%= `Word ${input} is anagram ${output}` %></h3>
+
+    <form action="/" method="get">
+        Word:<br>
+        <input type="text" name="word">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <table class="table" border="1">
+	<thead>
+		<tr>
+			<th>
+				No
+			</th>
+			<th>
+				Words
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+    <% let i=1; alldata.forEach((data)=>{ %>
+		<tr>
+			<td>
+				<%= i++; %>
+			</td>
+			<td>
+				<%= data.words %>
+			</td>
+		</tr>
+    <% }) %>
+	</tbody>
+</table>
+  </body>
+</html>
