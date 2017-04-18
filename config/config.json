@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "ivan",
+    "password": "Mavericks.23",
+    "database": "anagram_dev",
+    "host": "127.0.0.1",
+    "port":5432,
+    "dialect": "postgres"
+  }
+}
