@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1><%= title %></h1>
+    <p>Welcome to
+        <%= title %>
+    </p>
+    <form class="" action="/" method="GET">
+        <input type="text" name="word" value="">
+        <button type="submit" name="button">submit</button>
+    </form>
+    <h2><%= word %></h2>
+    <%
+
+    anagrams.forEach(anagram=>{ %>
+
+    <p><%= anagram.words %></p>
+
+    <% }) %>
+
+
+
+</body>
+
+</html>
