@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%=  %>
+    </title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div class="col-md-12">
+    <h3><%= `anagram dari ${input} adalah ${output}` %></h3>
+  </div>
+    <div class="col-md-6">
+    <form action="/" method="get">
+        Word:<br>
+        <input type="text" name="word">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+  </div>
+    <div class="col-md-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        No
+                    </th>
+                    <th>
+                        Words
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let i=1; alldata.forEach((data)=>{ %>
+                    <tr>
+                        <td>
+                            <%= i++; %>
+                        </td>
+                        <td>
+                            <%= data %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
