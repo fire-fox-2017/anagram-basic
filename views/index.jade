@@ -7,3 +7,12 @@ block content
     ul
       each anagram in anagrams.length ? anagrams : ['There are no values']
         li= anagram
+
+  .row
+    form(action='/create', method='post')
+      .row
+        .input-field.col.s9
+          input#link(placeholder='Enter word here', type='text', name='word')
+        .input-field.col.s2
+          input.btn(type='submit', value='Submit')
+      .row
