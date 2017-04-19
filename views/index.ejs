@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Please input a word to find the anagrams.</p>
+    <div>
+      <form action="/" method="GET">
+        <input type="text" name="word" placeholder="input word" />
+        <button type="submit">Find Anagram</button>
+      </form>
+    </div>
+    <div>
+    <% if (word != '') {%>
+      <h2>Anagrams for <%= word %></h2>
+      <%
+        for (var i = 0; i < anagrams.length; i++) {
+      %>
+        <p><%= anagrams[i] %></p>
+      <%
+        }
+      }
+      %>
+    </div>
+    <div>
+      <h2>Dictionary</h2>
+      <%
+        for (var i = 0; i < source.length; i++) {
+      %>
+        <p><%= source[i] %></p>
+      <%
+        }
+      %>
+    </div>
+  </body>
+</html>
