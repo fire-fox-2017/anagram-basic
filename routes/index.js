@@ -5,16 +5,27 @@ var helper = require('../helpers/util');
 /* GET home page. */
 
 router.get('/', function(req, res, next) {
-  var word = req.query.word;
-
-  // release 2
-  res.render('index', {title: 'Anagrams', word: word, anagrams: {} });
-
-  // release 3
-  // helper.anagrams(word, function(source, data){
-  //   res.render('index', { title: 'Anagrams', word: source, anagrams: data });
-  // });
-
+  var word = req.query.words;
+  if (word === undefined) {
+    res.render('index', {
+      title: 'Anagrams',
+      word: '',
+      results: [{
+        word: ''
+      }]
+    });
+  } else {
+    helper.anagrams(word, function(source, data) {
+      console.log(data);
+      res.render('index', {
+        title: 'Anagrams',
+        word: source,
+        results: [{
+          word: ''
+        }]
+      });
+    });
+  }
 });
 
 module.exports = router;
